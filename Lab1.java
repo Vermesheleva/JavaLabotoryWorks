@@ -8,11 +8,14 @@ import java.util.Scanner;
             return Math.log(1-x);
         }
         static double calculateTailorVal(double acc, double x) {
-            double elem = 100;
+
             double calculatedVal = 0;
             int n = 1;
+            double temp = 1;
+            double elem = 100;
             while (Math.abs(elem) >= Math.abs(acc)) {
-                elem = -(Math.pow(x, n) / n);
+                temp = temp*x;
+                elem = temp/n;
                 calculatedVal += elem;
                 n++;
 
@@ -35,7 +38,7 @@ import java.util.Scanner;
                     throw new Exception("X should be in [-1, 1)");
                 }
 
-                double acc = Math.pow(10, -k);
+                double acc = Math.pow(10, -(2*k+1));
                 double actVal = calculateActualValue(x);
                 double calculatedVal = calculateTailorVal(acc, x);
 
