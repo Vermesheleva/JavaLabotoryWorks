@@ -37,7 +37,7 @@ public class Lab2_15 {
         }
         int [] temp;
         for (int i=0;  i<n; i++){
-            for(int k=1+1; k<n; k++) {
+            for(int k=i; k<n; k++) {
 
                 if (matr[i][0] > matr[k][0]) {
                     temp = matr[i];
